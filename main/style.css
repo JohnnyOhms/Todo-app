@@ -1,12 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@100&display=swap');
-
 :root {
     --white:#fff;
     --black: #1c2b2d;
-    --blue: #31326f;
     --light-blue: #005490;
     --color-primary: #9d0919;
-    --color-sec: #db6400;
     --color-grey: #ddd;
     --color-dark-grey: #222831;
 }
