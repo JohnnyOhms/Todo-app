@@ -1,12 +1,18 @@
 window.onload = ()=>{
-    displayList();
+    getFromLocalstorage()
+    if (localStorage.getItem('tasks') === null) {
+        return;
+    } else {
+        displayList();
+    }
+    
 }
 
 
 //variables
 const input = document.getElementById("text"),
 addBtn = document.querySelector(".add-btn"),
-listparent = document.querySelector(".todo-table"),
+listParent = document.querySelector(".todo-table"),
 taskCount = document.getElementById("num"),
 clearList = document.querySelector(".clear");
 let task;
@@ -17,9 +23,9 @@ function addList(ev){
     if (input.value == ""){
         return;
     }else{
-        listparent.innerHTML = ""
+        listParent.innerHTML = ""
         AddToLocalstorage();
-        getFromLocalstorage();
+
         displayList();
     }
 
@@ -50,21 +56,26 @@ function displayList(){
         const list = task[i];
         let listElement = document.createElement('li');
         listElement.innerHTML = list
-        listparent.appendChild(listElement);
+        listParent.appendChild(listElement);
     }
     console.log(task.length);
     taskCount.innerHTML = `(${task.length})`
 }
+console.log(listParent.innerHTML);
 
 clearList.addEventListener("click", (ev)=>{
-    ev.preventDefault();
     getFromLocalstorage();
-    confirm("Do you want to clear List?")
-    if(confirm == true){
-        localStorage.clear()
-        displayList();
-    }else{
-        return;
+    let confirmDelete = confirm("Do you want to clear List?")
+    if (listParent.innerHTML == "") {
+        alert("no Task to clear"); 
+    } else {
+          if(confirmDelete == true){
+            localStorage.clear()
+            listParent.innerHTML = ""
+        }else{
+            return;
+        }
     }
+  
 })
 
