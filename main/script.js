@@ -25,7 +25,6 @@ function addList(ev){
     }else{
         listParent.innerHTML = ""
         AddToLocalstorage();
-
         displayList();
     }
 
@@ -58,20 +57,22 @@ function displayList(){
         let iconEdit = document.createElement("button")
         let iconDel = document.createElement("button")
         iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`
-        iconDel.innerHTML =  `<i class="fa-solid fa-trash-can"></i>`
+        iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="index" onclick = "remove(this.id)"></i>`
         listElement.innerHTML = list
         listElement.appendChild(iconEdit)
         listElement.appendChild(iconDel)
-        
         listParent.appendChild(listElement);
 
-        iconEdit.addEventListener('click',(e)=>{
-            
-        })
     }
     taskCount.innerHTML = `(${task.length})`
 }
-console.log(listParent.innerHTML);
+
+function remove(index){
+   console.log(this.index);
+   let removeTarget = this.index.parentElement;
+//    removeTarget.remove();
+    console.log(removeTarget);
+}
 
 clearList.addEventListener("click", (ev)=>{
     getFromLocalstorage();
