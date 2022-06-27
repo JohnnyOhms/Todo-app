@@ -6,7 +6,9 @@ window.onload = ()=>{
 //variables
 const input = document.getElementById("text"),
 addBtn = document.querySelector(".add-btn"),
-listparent = document.querySelector(".todo-table");
+listparent = document.querySelector(".todo-table"),
+taskCount = document.getElementById("num"),
+clearList = document.querySelector(".clear");
 let task;
 
 addBtn.addEventListener('click', addList)
@@ -50,10 +52,19 @@ function displayList(){
         listElement.innerHTML = list
         listparent.appendChild(listElement);
     }
-
-    // task.forEach(tasks => {
-    //     let listElement = document.createElement('li');
-    //     listElement.innerHTML = tasks
-    //     listparent.appendChild(listElement);
-    // });
+    console.log(task.length);
+    taskCount.innerHTML = `(${task.length})`
 }
+
+clearList.addEventListener("click", (ev)=>{
+    ev.preventDefault();
+    getFromLocalstorage();
+    confirm("Do you want to clear List?")
+    if(confirm == true){
+        localStorage.clear()
+        displayList();
+    }else{
+        return;
+    }
+})
+
