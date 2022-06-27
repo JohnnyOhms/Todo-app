@@ -45,7 +45,7 @@ function AddToLocalstorage(){
 }
 
 function getFromLocalstorage(){
-  
+
     task = JSON.parse(localStorage.getItem("tasks"))
     console.log(task)
 }
@@ -54,11 +54,21 @@ function displayList(){
     getFromLocalstorage();
     for (let i = 0; i < task.length; i++) {
         const list = task[i];
-        let listElement = document.createElement('li');
+        let listElement = document.createElement('li')
+        let iconEdit = document.createElement("button")
+        let iconDel = document.createElement("button")
+        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`
+        iconDel.innerHTML =  `<i class="fa-solid fa-trash-can"></i>`
         listElement.innerHTML = list
+        listElement.appendChild(iconEdit)
+        listElement.appendChild(iconDel)
+        
         listParent.appendChild(listElement);
+
+        iconEdit.addEventListener('click',(e)=>{
+            
+        })
     }
-    console.log(task.length);
     taskCount.innerHTML = `(${task.length})`
 }
 console.log(listParent.innerHTML);
@@ -72,6 +82,7 @@ clearList.addEventListener("click", (ev)=>{
           if(confirmDelete == true){
             localStorage.clear()
             listParent.innerHTML = ""
+            taskCount.innerHTML = `(0)`
         }else{
             return;
         }
