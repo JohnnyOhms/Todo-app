@@ -57,12 +57,13 @@ function displayList(){
         let listElement = document.createElement('li')
         let iconEdit = document.createElement("button")
         let iconDel = document.createElement("button")
-        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}" "onclick = "editList(this.id)"></i>`
+        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}"  onclick ="editList(this.id, ${list})"></i>`
         iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="${index}" onclick = "remove(this.id)"></i>`
         listElement.innerHTML = list
         listElement.appendChild(iconEdit)
         listElement.appendChild(iconDel)
         listParent.appendChild(listElement);
+        console.log(list);
 
     })
     taskCount.innerHTML = `(${task.length})`
@@ -76,14 +77,13 @@ function remove(index){
     displayList();
 }
 
-function editList(list){
+function editList(list, index){
     getFromLocalstorage();
-    // input.value = index.task
-    console.log(list);
-    // task.splice(index , 1)
-    // localStorage.setItem('tasks', JSON.stringify(task))
-    // listParent.innerHTML = ""
-    // displayList();
+    input.value = list
+    console.log(String(index));
+    task.splice(index, 1)
+    string()
+
 }
 
 clearList.addEventListener("click", (ev)=>{
