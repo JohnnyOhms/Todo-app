@@ -8,7 +8,6 @@ window.onload = ()=>{
     
 }
 
-
 //variables
 const input = document.getElementById("text"),
 addBtn = document.querySelector(".add-btn"),
@@ -51,27 +50,30 @@ function getFromLocalstorage(){
 
 function displayList(){
     getFromLocalstorage();
-    for (let i = 0; i < task.length; i++) {
-        const list = task[i];
+    // for (let i = 0; i < task.length; i++) {
+    //     const list = task[i];
+  
+    task.forEach((list, index)=>{
         let listElement = document.createElement('li')
         let iconEdit = document.createElement("button")
         let iconDel = document.createElement("button")
-        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`
-        iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="index" onclick = "remove(this.id)"></i>`
+        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}" onclick = "edit(this.id)"></i>`
+        iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="${index}" onclick = "remove(this.id)"></i>`
         listElement.innerHTML = list
         listElement.appendChild(iconEdit)
         listElement.appendChild(iconDel)
         listParent.appendChild(listElement);
 
-    }
+    })
     taskCount.innerHTML = `(${task.length})`
 }
 
 function remove(index){
-   console.log(this.index);
-   let removeTarget = this.index.parentElement;
-//    removeTarget.remove();
-    console.log(removeTarget);
+    getFromLocalstorage();
+    task.splice(index, 1)
+    localStorage.setItem('tasks', JSON.stringify(task))
+    listParent.innerHTML = ""
+    displayList();
 }
 
 clearList.addEventListener("click", (ev)=>{
