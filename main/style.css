@@ -13,13 +13,47 @@
     box-sizing: border-box;
 }
 
-
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: url(./bg.jpg) center center fixed no-repeat;
+    height: 100vh;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    font-family: "Nunito";
+}
+
+.head{
+    width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-family: "Rubik Moonrocks";
+    margin-bottom: 3rem;
+}
+
+.time{
+    color: orangered;
 }
 
 .container {
-    max-width: 900px;
+    width: 40rem;
     margin: 0 auto;
-    padding: 0 20px;
+    background-color: white;
+    border: 1px solid var(--black);
+    padding: 6px;
+}
+
+.todo-num{
+    background-color: grey;
+    padding: 7px;
+    width: 40rem;
+    margin: 0 auto;
+    font-weight: 800;
+    font-size: 20px;
+    border: 1px solid var(--black);
+
 }
