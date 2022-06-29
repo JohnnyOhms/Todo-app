@@ -16,6 +16,8 @@ taskCount = document.getElementById("num"),
 clearList = document.querySelector(".clear");
 let task;
 
+
+
 addBtn.addEventListener('click', addList)
 function addList(ev){
     ev.preventDefault();
@@ -30,13 +32,18 @@ function addList(ev){
 }
 
 function AddToLocalstorage(){
-    if (localStorage.getItem("tasks") === null) {
-        task =[];
-    }else{
-        task = JSON.parse(localStorage.getItem("tasks"))
+    // if (localStorage.getItem("tasks") === null) {
+    //     task =[];
+    // }else{
+    //     task = JSON.parse(localStorage.getItem("tasks"))
+    // }
+
+    getFromLocalstorage();
+
+    let listObj = {
+        tdList: input.value
     }
-    
-    task.push(input.value)
+    task.push(listObj)
     localStorage.setItem("tasks", JSON.stringify(task));
     input.value = ""
 
@@ -44,26 +51,28 @@ function AddToLocalstorage(){
 
 function getFromLocalstorage(){
 
-    task = JSON.parse(localStorage.getItem("tasks"))
-    console.log(task)
+    if (localStorage.getItem("tasks") === null) {
+        task =[];
+    }else{
+        task = JSON.parse(localStorage.getItem("tasks"))
+    }
+
+    // task = JSON.parse(localStorage.getItem("tasks"))
+    // console.log(task)
 }
 
 function displayList(){
-    getFromLocalstorage();
-    // for (let i = 0; i < task.length; i++) {
-    //     const list = task[i];
-  
+   
     task.forEach((list, index)=>{
         let listElement = document.createElement('li')
         let iconEdit = document.createElement("button")
         let iconDel = document.createElement("button")
-        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}"  onclick ="editList(this.id, ${list})"></i>`
+        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}}"  onclick ="editList(this.id)"></i>`
         iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="${index}" onclick = "remove(this.id)"></i>`
-        listElement.innerHTML = list
+        listElement.innerHTML = list.tdList
         listElement.appendChild(iconEdit)
         listElement.appendChild(iconDel)
         listParent.appendChild(listElement);
-        console.log(list);
 
     })
     taskCount.innerHTML = `(${task.length})`
@@ -77,12 +86,12 @@ function remove(index){
     displayList();
 }
 
-function editList(list, index){
+function editList(index){
     getFromLocalstorage();
-    input.value = list
-    console.log(String(index));
-    task.splice(index, 1)
-    string()
+    // AddToLocalstorage();
+    console.log(task.listObj.tdList)
+   
+  
 
 }
 
