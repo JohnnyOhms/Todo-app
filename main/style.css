@@ -14,7 +14,7 @@
 }
 
 body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Oleo Script Swash Caps";
     /* background: url(bg.jpg) center center fixed no-repeat;
     height: 100vh;
     background-size: cover; */
@@ -66,21 +66,61 @@ form{
 
 #text{
     width: 100%;
-    padding: 8px;
-    margin: 5px 0 5px 5px;
+    padding: 10px;
+    margin: 15px 4px 15px 10px;
     outline: none;
 }
 .add-btn{
-    background-color: var(--light-blue);
-    color: var(--white);
-    width: 7rem;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 1rem;
+  font-family:inherit ;
+  padding: 5px;
+  height: 40px;
+  text-align: center;
+  margin-top: 0.9rem;
+  margin-right: 10px;
+  background-color: var(--light-blue);
+  color: var(--white);
+  border: none;
 }
 
 .todo-table{
-    border: 1px solid black;
-    margin: 8px 3px 8px 3px;
+    position: relative;
+    width: 100%;
+    margin: auto 0;
+    padding: 10px;
+    box-sizing: border-box;
 }
+
+.todo-table li{
+    display: flex;
+    border: 0.5px solid var(--black);
+    padding: 10px 20px;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.todo-table li:nth-child(odd){
+    background-color: grey;
+}
+
+i{
+    padding: 5px;
+    width: 40px;
+}
+
+.fa-pen-to-square{
+    background-color: green;
+    color: var(--white);
+    text-align: center;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.fa-trash-can{
+    background-color: var(--color-primary);
+    color: var(--white);
+    text-align: center;
+    border-radius: 3px;
+    margin: 5px;
+}
+

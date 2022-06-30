@@ -52,14 +52,17 @@ function displayList(){
    getFromLocalstorage();
     task.forEach((list, index)=>{
         let listElement = document.createElement('li')
-        let iconEdit = document.createElement("button")
-        let iconDel = document.createElement("button")
+        let iconEdit = document.createElement("span")
+        let iconDel = document.createElement("span")
+        let cta = document.createElement("div")
+        cta.classList.add("cta")
         iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}}"  onclick ="editList(this.id)"></i>`
         iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="${index}" onclick = "remove(this.id)"></i>`
-        listElement.innerHTML = list.tdList;
-        listElement.appendChild(iconEdit)
-        listElement.appendChild(iconDel)
-        listParent.appendChild(listElement);
+        listElement.innerHTML = list.tdList
+        listElement.appendChild(cta)
+        cta.appendChild(iconEdit)
+        cta.appendChild(iconDel)
+        listParent.appendChild(listElement)
     })
     taskCount.innerHTML = `(${task.length})`
 }
