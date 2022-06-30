@@ -56,24 +56,21 @@ function getFromLocalstorage(){
     }else{
         task = JSON.parse(localStorage.getItem("tasks"))
     }
-
-    // task = JSON.parse(localStorage.getItem("tasks"))
-    // console.log(task)
 }
 
 function displayList(){
-   
+
+   getFromLocalstorage();
     task.forEach((list, index)=>{
         let listElement = document.createElement('li')
         let iconEdit = document.createElement("button")
         let iconDel = document.createElement("button")
         iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}}"  onclick ="editList(this.id)"></i>`
         iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="${index}" onclick = "remove(this.id)"></i>`
-        listElement.innerHTML = list.tdList
+        listElement.innerHTML = list.tdList;
         listElement.appendChild(iconEdit)
         listElement.appendChild(iconDel)
         listParent.appendChild(listElement);
-
     })
     taskCount.innerHTML = `(${task.length})`
 }
@@ -88,8 +85,7 @@ function remove(index){
 
 function editList(index){
     getFromLocalstorage();
-    // AddToLocalstorage();
-    console.log(task.listObj.tdList)
+    console.log(task[index].tdList)
    
   
 

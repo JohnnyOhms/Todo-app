@@ -15,9 +15,10 @@
 
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: url(./bg.jpg) center center fixed no-repeat;
+    /* background: url(bg.jpg) center center fixed no-repeat;
     height: 100vh;
-    background-size: cover;
+    background-size: cover; */
+    background-color: var(--color-grey);
     align-items: center;
     justify-content: center;
     font-family: "Nunito";
@@ -49,11 +50,37 @@ body{
 
 .todo-num{
     background-color: grey;
+    background: transparent;
     padding: 7px;
     width: 40rem;
     margin: 0 auto;
     font-weight: 800;
     font-size: 20px;
     border: 1px solid var(--black);
+}
 
+form{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#text{
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 5px 5px;
+    outline: none;
+}
+.add-btn{
+    background-color: var(--light-blue);
+    color: var(--white);
+    width: 7rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo-table{
+    border: 1px solid black;
+    margin: 8px 3px 8px 3px;
 }
