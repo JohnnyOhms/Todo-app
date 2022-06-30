@@ -23,23 +23,23 @@ function addList(ev){
         return;
     }else{
         listParent.innerHTML = ""
-        getFromLocalstorage();
+        // getFromLocalstorage();
         AddToLocalstorage();
         displayList();
     }
 }
 
 function getFromLocalstorage(){
-    let note = localStorage.getItem("tasks")
-    if ( note === null) {
+
+    if (localStorage.getItem("tasks")=== null) {
         task =[];
     }else{
-        task = JSON.parse(note)
+        task = JSON.parse(localStorage.getItem("tasks"))
     }
 }
 
 function AddToLocalstorage(){
-
+    getFromLocalstorage();
     listObj = {
         tdList: input.value
     }
@@ -105,7 +105,7 @@ clearList.addEventListener("click", (ev)=>{
         alert("no Task to clear"); 
     } else {
           if(confirmDelete == true){
-            localStorage.clear()
+            localStorage.removeItem("tasks")
             listParent.innerHTML = ""
             taskCount.innerHTML = `(0)`
         }else{
@@ -113,4 +113,5 @@ clearList.addEventListener("click", (ev)=>{
         }
     }
 })
+
 
