@@ -5,7 +5,6 @@ window.onload = ()=>{
     } else {
         displayList();
     }
-    
 }
 
 //variables
@@ -15,8 +14,6 @@ listParent = document.querySelector(".todo-table"),
 taskCount = document.getElementById("num"),
 clearList = document.querySelector(".clear");
 let task;
-
-
 
 addBtn.addEventListener('click', addList)
 function addList(ev){
@@ -28,16 +25,9 @@ function addList(ev){
         AddToLocalstorage();
         displayList();
     }
-
 }
 
 function AddToLocalstorage(){
-    // if (localStorage.getItem("tasks") === null) {
-    //     task =[];
-    // }else{
-    //     task = JSON.parse(localStorage.getItem("tasks"))
-    // }
-
     getFromLocalstorage();
 
     let listObj = {
@@ -46,7 +36,6 @@ function AddToLocalstorage(){
     task.push(listObj)
     localStorage.setItem("tasks", JSON.stringify(task));
     input.value = ""
-
 }
 
 function getFromLocalstorage(){
@@ -86,9 +75,6 @@ function remove(index){
 function editList(index){
     getFromLocalstorage();
     console.log(task[index].tdList)
-   
-  
-
 }
 
 clearList.addEventListener("click", (ev)=>{
@@ -105,6 +91,5 @@ clearList.addEventListener("click", (ev)=>{
             return;
         }
     }
-  
 })
 
