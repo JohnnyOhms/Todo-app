@@ -101,7 +101,7 @@ function editList(index){
 clearList.addEventListener("click", (ev)=>{
     getFromLocalstorage();
     let confirmDelete = confirm("Do you want to clear List?")
-    if (listParent.innerHTML == "") {
+    if (localStorage.getItem('tasks') === null) {
         alert("no Task to clear"); 
     } else {
           if(confirmDelete == true){

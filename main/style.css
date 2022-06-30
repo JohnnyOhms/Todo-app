@@ -71,17 +71,17 @@ form{
     outline: none;
 }
 .add-btn{
-  font-size: 1rem;
-  padding: 5px;
-  height: 40px;
-  text-align: center;
-  margin-top: 0.9rem;
-  margin-right: 10px;
-  background-color: var(--light-blue);
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
+    font-size: 1rem;
+    padding: 5px;
+    height: 40px;
+    text-align: center;
+    margin-top: 0.9rem;
+    margin-right: 10px;
+    background-color: var(--light-blue);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .todo-table{
@@ -137,6 +137,7 @@ i{
     background-color: var(--light-blue);
     color: var(--white);
     border: none;
+    margin-top: 15px;
     margin-left: 10px;
     font-family: inherit;
 }
@@ -146,4 +147,33 @@ i{
     font-size: 30px;
     font-family:'Titan One';
     letter-spacing: 2px;
+}
+
+@media screen and (max-width:600px) {
+    .container{
+        width: 50rem;
+        padding: 0;
+    }
+
+    .head{
+        width: 50rem;
+        height: 60px;
+        font-size: 35px ;
+    }
+
+    #todo, .time{
+        padding-bottom: 1.5rem;
+    }
+
+    .todo-num{
+        font-size: 30px;
+    }
+
+    .todo-table li{
+        font-size: 25px;
+    }
+
+    .clear{
+        margin-top: 23px;
+    }
 }
