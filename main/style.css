@@ -14,7 +14,6 @@
 }
 
 body{
-    font-family: "Oleo Script Swash Caps";
     background: url(bg.jpg) center center fixed no-repeat;
     color: var(--white);
     height: 100vh;
@@ -149,10 +148,18 @@ i{
     letter-spacing: 2px;
 }
 
-@media (max-width:600px) {
+@media (max-width:400px) {
+
+    body{
+        background: url(bg.jpg) center center fixed ;
+        height: 100vh;
+        background-size: cover;
+    }
+
     .container{
         width: 50rem;
         padding: 0;
+        background-color: #9d0919;
     }
 
     .head{
