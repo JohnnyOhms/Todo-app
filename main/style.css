@@ -148,7 +148,7 @@ i{
     letter-spacing: 2px;
 }
 
-@media screen {
+@media (max-width:600px) {
 
     body{
         background: url(bg.jpg) center center fixed ;
