@@ -149,7 +149,7 @@ i{
     letter-spacing: 2px;
 }
 
-@media screen and (max-width:600px) {
+@media (max-width:600px) {
     .container{
         width: 50rem;
         padding: 0;
