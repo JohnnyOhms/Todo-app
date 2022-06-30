@@ -43,7 +43,6 @@ body{
 .container {
     width: 40rem;
     margin: 0 auto;
-    /* background-color: rgba(186, 172, 143, 0.46); */
     border: 1px solid var(--black);
     padding: 6px;
     display: flex;
@@ -51,7 +50,6 @@ body{
 }
 
 .todo-num{
-    /* background-color: rgba(186, 172, 143, 0.46); */
     padding: 7px;
     width: 40rem;
     margin: 0 auto;

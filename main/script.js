@@ -14,7 +14,7 @@ listParent = document.querySelector(".todo-table"),
 taskCount = document.getElementById("num"),
 clearList = document.querySelector(".clear"),
 empty = document.getElementById('empty')
-// let task;
+let task;
 
 addBtn.addEventListener('click', addList)
 function addList(ev){
@@ -23,29 +23,29 @@ function addList(ev){
         return;
     }else{
         listParent.innerHTML = ""
+        getFromLocalstorage();
         AddToLocalstorage();
         displayList();
     }
 }
 
-function AddToLocalstorage(){
-    getFromLocalstorage();
+function getFromLocalstorage(){
+    let note = localStorage.getItem("tasks")
+    if ( note === null) {
+        task =[];
+    }else{
+        task = JSON.parse(note)
+    }
+}
 
-    let listObj = {
+function AddToLocalstorage(){
+
+    listObj = {
         tdList: input.value
     }
     task.push(listObj)
     localStorage.setItem("tasks", JSON.stringify(task));
     input.value = ""
-}
-
-function getFromLocalstorage(){
-
-    if (localStorage.getItem("tasks") === null) {
-        task =[];
-    }else{
-        task = JSON.parse(localStorage.getItem("tasks"))
-    }
 }
 
 function displayList(){
@@ -64,7 +64,7 @@ function displayList(){
         let iconDel = document.createElement("span")
         let cta = document.createElement("div")
         cta.classList.add("cta")
-        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}}"  onclick ="editList(this.id)"></i>`
+        iconEdit.innerHTML = `<i class="fa-solid fa-pen-to-square" id="${index}" onclick ="editList(this.id)"></i>`
         iconDel.innerHTML =  `<i class="fa-solid fa-trash-can" id="${index}" onclick = "remove(this.id)"></i>`
         listElement.innerHTML = list.tdList
         listElement.appendChild(cta)
@@ -86,7 +86,16 @@ function remove(index){
 
 function editList(index){
     getFromLocalstorage();
-    console.log(task[index].tdList)
+    input.value = task[index].tdList;
+    input.style.border = "4px solid green"
+    setTimeout(()=>{
+        input.style.border = "2px solid black"
+    },2000)
+    task.splice(index, 1)
+    localStorage.setItem('tasks', JSON.stringify(task))
+    listParent.innerHTML = ""
+    displayList();
+
 }
 
 clearList.addEventListener("click", (ev)=>{
