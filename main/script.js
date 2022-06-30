@@ -12,8 +12,9 @@ const input = document.getElementById("text"),
 addBtn = document.querySelector(".add-btn"),
 listParent = document.querySelector(".todo-table"),
 taskCount = document.getElementById("num"),
-clearList = document.querySelector(".clear");
-let task;
+clearList = document.querySelector(".clear"),
+empty = document.getElementById('empty')
+// let task;
 
 addBtn.addEventListener('click', addList)
 function addList(ev){
@@ -50,6 +51,13 @@ function getFromLocalstorage(){
 function displayList(){
 
    getFromLocalstorage();
+   taskCount.innerHTML = `(${task.length})`
+   if (task.length == 0) {
+        empty.style.display="block"
+   }else{
+        empty.style.display="none"
+   }
+
     task.forEach((list, index)=>{
         let listElement = document.createElement('li')
         let iconEdit = document.createElement("span")
@@ -63,8 +71,9 @@ function displayList(){
         cta.appendChild(iconEdit)
         cta.appendChild(iconDel)
         listParent.appendChild(listElement)
+
     })
-    taskCount.innerHTML = `(${task.length})`
+    
 }
 
 function remove(index){

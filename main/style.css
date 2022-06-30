@@ -15,10 +15,9 @@
 
 body{
     font-family: "Oleo Script Swash Caps";
-    /* background: url(bg.jpg) center center fixed no-repeat;
+    background: url(bg.jpg) center center fixed no-repeat;
     height: 100vh;
-    background-size: cover; */
-    background-color: var(--color-grey);
+    background-size: cover;
     align-items: center;
     justify-content: center;
     font-family: "Nunito";
@@ -43,14 +42,15 @@ body{
 .container {
     width: 40rem;
     margin: 0 auto;
-    background-color: white;
+    background-color: rgba(186, 172, 143, 0.46);
     border: 1px solid var(--black);
     padding: 6px;
+    display: flex;
+    flex-direction: column;
 }
 
 .todo-num{
-    background-color: grey;
-    background: transparent;
+    background-color: rgba(186, 172, 143, 0.46);
     padding: 7px;
     width: 40rem;
     margin: 0 auto;
@@ -81,6 +81,7 @@ form{
   background-color: var(--light-blue);
   color: var(--white);
   border: none;
+  cursor: pointer;
 }
 
 .todo-table{
@@ -94,18 +95,21 @@ form{
 .todo-table li{
     display: flex;
     border: 0.5px solid var(--black);
-    padding: 10px 20px;
+    padding: 5px 10px;
     margin: 0;
     justify-content: space-between;
+    font-size: 18px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .todo-table li:nth-child(odd){
-    background-color: grey;
+    background-color:rgba(186, 172, 143, 0.46)
 }
 
 i{
     padding: 5px;
     width: 40px;
+    cursor: pointer;
 }
 
 .fa-pen-to-square{
@@ -124,3 +128,18 @@ i{
     margin: 5px;
 }
 
+.clear{
+    font-size: 1rem;
+    padding: 5px;
+    height: 40px;
+    width: 9rem;
+    background-color: var(--light-blue);
+    color: var(--white);
+    border: none;
+    margin-left: 10px;
+}
+
+#empty{
+    text-align: center;
+    font-size: 30px;
+}
